@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Root styles that vary by API level -->
+    <!-- Disable RTL support on older devices -->
+    <!-- Prevents crash on certain devices to namespace conflict -->
+    <style name="FrameworkRoot.Theme" parent="Theme.AppCompat" />
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="FrameworkRoot.Theme">
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base"/>
+
+</resources>

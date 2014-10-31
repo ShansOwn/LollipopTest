@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
+
+    defaultConfig {
+        applicationId "com.shansown.android.lollipoptest"
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "0.0.1"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:appcompat-v7:21.+"
+    compile 'com.android.support:recyclerview-v7:21.+'
+    compile 'com.android.support:cardview-v7:21.+'
+    compile 'com.squareup.picasso:picasso:2.3.4'
+}
+
+task start(type:Exec) {
+    commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.shansown.android.lollipoptest/.ui.MainActivity'
+}
