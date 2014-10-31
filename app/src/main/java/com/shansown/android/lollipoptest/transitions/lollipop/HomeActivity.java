@@ -1,5 +1,6 @@
-package com.shansown.android.lollipoptest.ui;
+package com.shansown.android.lollipoptest.transitions.lollipop;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shansown.android.lollipoptest.R;
+import com.shansown.android.lollipoptest.BaseActivity;
 import com.squareup.picasso.Picasso;
 
 import static com.shansown.android.lollipoptest.util.LogUtils.LOGD;
@@ -37,7 +39,7 @@ public class HomeActivity extends BaseActivity {
         });
 
         GridView gridView = (GridView) findViewById(R.id.gridView);
-        gridView.setAdapter(new GridViewAdapter());
+        gridView.setAdapter(new GridViewAdapter(this));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -54,6 +56,13 @@ public class HomeActivity extends BaseActivity {
     }
 
     private static class GridViewAdapter extends BaseAdapter {
+
+        private Context mContext;
+
+        private GridViewAdapter(Context context) {
+            mContext = context;
+            Picasso.with(mContext).setIndicatorsEnabled(true);
+        }
 
         @Override
         public int getCount() {
@@ -72,9 +81,8 @@ public class HomeActivity extends BaseActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-
             if (view == null) {
-                view = LayoutInflater.from(viewGroup.getContext())
+                view = LayoutInflater.from(mContext)
                         .inflate(R.layout.grid_item, viewGroup, false);
             }
 
@@ -83,7 +91,7 @@ public class HomeActivity extends BaseActivity {
             view.setTag(imageUrl);
 
             ImageView image = (ImageView) view.findViewById(R.id.image);
-            Picasso.with(view.getContext())
+            Picasso.with(mContext)
                     .load(imageUrl)
                     .into(image);
 

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.shansown.android.lollipoptest"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
         versionName "0.0.1"
@@ -31,8 +31,10 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.+'
     compile 'com.android.support:cardview-v7:21.+'
     compile 'com.squareup.picasso:picasso:2.3.4'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
 }
 
 task start(type:Exec) {
-    commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.shansown.android.lollipoptest/.ui.MainActivity'
+    commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.shansown.android.lollipoptest/.MainActivity'
 }

@@ -1,4 +1,4 @@
-package com.shansown.android.lollipoptest.ui;
+package com.shansown.android.lollipoptest;
 
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +11,8 @@ import android.view.View;
 import com.shansown.android.lollipoptest.R;
 
 public abstract class BaseActivity extends ActionBarActivity {
+
+    protected static final String PREFIX = "com.shansown.android.lollipoptest";
 
     // Navigation drawer:
     private DrawerLayout mDrawerLayout;
