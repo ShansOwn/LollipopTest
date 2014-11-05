@@ -14,5 +14,7 @@
     <color name="navdrawer_icon_tint_selected">@color/theme_primary</color>
     <color name="session_photo_scrim">#6000</color>
 
+    <color name="photo_tint">#88101010</color>
+
     <color name="translucent_actionbar_background">#cc3f51b5</color>
 </resources>

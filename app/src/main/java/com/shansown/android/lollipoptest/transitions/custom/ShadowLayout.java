@@ -111,6 +111,4 @@ public class ShadowLayout extends RelativeLayout {
             canvas.restore();
         }
     }
-    
-    
 }

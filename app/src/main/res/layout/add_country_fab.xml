@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_country_button"
+    android:layout_width="@dimen/add_country_button_height"
+    android:layout_height="@dimen/add_country_button_height"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/add_country_fab_background"
+    android:contentDescription="@string/add_country">
+
+    <ImageView
+        android:id="@+id/add_country_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:src="@drawable/add_country_button_icon"
+        android:contentDescription="@null"
+        android:layout_gravity="center" />
+
+</FrameLayout>

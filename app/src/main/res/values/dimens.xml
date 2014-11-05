@@ -11,4 +11,6 @@
     <dimen name="navdrawer_chosen_account_height">120dp</dimen>
     <dimen name="navdrawer_width">260dp</dimen>
     <dimen name="navdrawer_profile_image_size">40dp</dimen>
+
+    <dimen name="add_country_button_height">56dp</dimen> <!-- including padding -->
 </resources>

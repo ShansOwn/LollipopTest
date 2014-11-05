@@ -13,6 +13,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.shansown.android.lollipoptest.App;
 import com.shansown.android.lollipoptest.R;
 import com.shansown.android.lollipoptest.BaseActivity;
 import com.squareup.picasso.Picasso;
@@ -91,7 +92,7 @@ public class HomeActivity extends BaseActivity {
             view.setTag(imageUrl);
 
             ImageView image = (ImageView) view.findViewById(R.id.image);
-            Picasso.with(mContext)
+            Picasso.with(App.getAppContext())
                     .load(imageUrl)
                     .into(image);
 

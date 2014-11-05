@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.shansown.android.lollipoptest.App;
 import com.shansown.android.lollipoptest.R;
 import com.shansown.android.lollipoptest.BaseActivity;
 import com.squareup.picasso.Picasso;
@@ -34,7 +35,7 @@ public class DetailActivity extends BaseActivity {
 
         ImageView image = (ImageView) findViewById(R.id.image);
         ViewCompat.setTransitionName(image, EXTRA_IMAGE);
-        Picasso.with(this).load(getIntent().getStringExtra(EXTRA_IMAGE)).into(image);
+        Picasso.with(App.getAppContext()).load(getIntent().getStringExtra(EXTRA_IMAGE)).into(image);
     }
 
     @Override

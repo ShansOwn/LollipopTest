@@ -172,14 +172,14 @@ public class PicturesActivity extends BaseActivity {
             ViewDataHolder info = (ViewDataHolder) view.getTag();
             Intent subActivity = new Intent(PicturesActivity.this, PictureDetailsActivity.class);
             int orientation = getResources().getConfiguration().orientation;
-            subActivity.
-                    putExtra(PREFIX + ".orientation", orientation).
-                    putExtra(PREFIX + ".url", info.imageUrl).
-                    putExtra(PREFIX + ".left", screenLocation[0]).
-                    putExtra(PREFIX + ".top", screenLocation[1]).
-                    putExtra(PREFIX + ".width", view.getWidth()).
-                    putExtra(PREFIX + ".height", view.getHeight()).
-                    putExtra(PREFIX + ".description", info.description);
+            subActivity
+                    .putExtra(PREFIX + ".orientation", orientation)
+                    .putExtra(PREFIX + ".url", info.imageUrl)
+                    .putExtra(PREFIX + ".left", screenLocation[0])
+                    .putExtra(PREFIX + ".top", screenLocation[1])
+                    .putExtra(PREFIX + ".width", view.getWidth())
+                    .putExtra(PREFIX + ".height", view.getHeight())
+                    .putExtra(PREFIX + ".description", info.description);
             startActivity(subActivity);
 
             // Override transitions: we don't want the normal window animation in addition

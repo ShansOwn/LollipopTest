@@ -57,11 +57,11 @@ public class PictureDetailsActivity extends BaseActivity {
 
     private BitmapDrawable mBitmapDrawable;
     private ColorMatrix colorizerMatrix = new ColorMatrix();
-    ColorDrawable mBackground;
-    int mLeftDelta;
-    int mTopDelta;
-    float mWidthScale;
-    float mHeightScale;
+    private ColorDrawable mBackground;
+    private int mLeftDelta;
+    private int mTopDelta;
+    private float mWidthScale;
+    private float mHeightScale;
     private ImageView mImageView;
     private TextView mTextView;
     private FrameLayout mTopLevelLayout;
@@ -147,19 +147,19 @@ public class PictureDetailsActivity extends BaseActivity {
         mTextView.setAlpha(0);
 
         // Animate scale and translation to go from thumbnail to full size
-        mImageView.animate().setDuration(duration).
-                scaleX(1).scaleY(1).
-                translationX(0).translationY(0).
-                setInterpolator(sDecelerator).
-                withEndAction(new Runnable() {
+        mImageView.animate().setDuration(duration)
+                .scaleX(1).scaleY(1)
+                .translationX(0).translationY(0)
+                .setInterpolator(sDecelerator)
+                .withEndAction(new Runnable() {
                     public void run() {
                         // Animate the description in after the image animation
                         // is done. Slide and fade the text in from underneath
                         // the picture.
                         mTextView.setTranslationY(-mTextView.getHeight());
-                        mTextView.animate().setDuration(duration/2).
-                                translationY(0).alpha(1).
-                                setInterpolator(sDecelerator);
+                        mTextView.animate().setDuration(duration/2)
+                                .translationY(0).alpha(1)
+                                .setInterpolator(sDecelerator);
                     }
                 });
 
@@ -211,15 +211,15 @@ public class PictureDetailsActivity extends BaseActivity {
         }
 
         // First, slide/fade text out of the way
-        mTextView.animate().translationY(-mTextView.getHeight()).alpha(0).
-                setDuration(duration/2).setInterpolator(sAccelerator).
-                withEndAction(new Runnable() {
+        mTextView.animate().translationY(-mTextView.getHeight()).alpha(0)
+                .setDuration(duration/2).setInterpolator(sAccelerator)
+                .withEndAction(new Runnable() {
                     public void run() {
                         // Animate image back to thumbnail size/location
-                        mImageView.animate().setDuration(duration).
-                                scaleX(mWidthScale).scaleY(mHeightScale).
-                                translationX(mLeftDelta).translationY(mTopDelta).
-                                withEndAction(endAction);
+                        mImageView.animate().setDuration(duration)
+                                .scaleX(mWidthScale).scaleY(mHeightScale)
+                                .translationX(mLeftDelta).translationY(mTopDelta)
+                                .withEndAction(endAction);
                         if (fadeOut) {
                             mImageView.animate().alpha(0);
                         }

@@ -5,13 +5,19 @@ import android.content.Context;
 
 import com.squareup.picasso.Picasso;
 
+import static com.shansown.android.lollipoptest.util.LogUtils.LOGD;
+import static com.shansown.android.lollipoptest.util.LogUtils.makeLogTag;
+
 public class App extends Application {
+
+    private static final String TAG = makeLogTag(App.class);
 
     private static Context sAppContext;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        sAppContext = getApplicationContext();
         initImageLoader();
     }
 
@@ -21,7 +27,7 @@ public class App extends Application {
                Red - network
                Yellow - disk
                Green - memory */
-            Picasso.with(App.getAppContext()).setIndicatorsEnabled(true);
+            Picasso.with(sAppContext).setIndicatorsEnabled(true);
         }
     }
 
