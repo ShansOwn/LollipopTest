@@ -20,6 +20,9 @@
     <string name="main_transitions_lollipop">Transitions Lollipop</string>
     <string name="main_transitions_custom">Transitions Custom</string>
     <string name="main_card_recycler_view">Card Recycler</string>
+    <string name="main_red_circle">Red Circle</string>
+
+    <string name="text_increment">Increment</string>
 
     <string name="menu_slow_animations">Slow</string>
 

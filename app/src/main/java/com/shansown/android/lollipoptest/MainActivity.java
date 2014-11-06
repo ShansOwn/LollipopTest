@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.shansown.android.lollipoptest.cardrecyclerview.CardRecyclerViewActivity;
+import com.shansown.android.lollipoptest.badge.BadgeActivity;
 import com.shansown.android.lollipoptest.transitions.custom.PicturesActivity;
 import com.shansown.android.lollipoptest.transitions.lollipop.HomeActivity;
 
@@ -51,5 +52,14 @@ public class MainActivity extends BaseActivity {
      */
     public void cardRecyclerDemo(View unused) {
         launchClass(CardRecyclerViewActivity.class);
+    }
+
+    /**
+     * Launch Red Circle demo. Called from onclick=""
+     *
+     * @param unused
+     */
+    public void redCircleDemo(View unused) {
+        launchClass(BadgeActivity.class);
     }
 }

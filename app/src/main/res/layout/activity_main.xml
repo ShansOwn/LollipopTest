@@ -36,6 +36,12 @@
                     android:layout_width="wrap_content"
                     android:onClick="cardRecyclerDemo"
                     android:text="@string/main_card_recycler_view" />
+
+                <Button
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:onClick="redCircleDemo"
+                    android:text="@string/main_red_circle" />
             </LinearLayout>
 
         </ScrollView>
