@@ -9,8 +9,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.shansown.android.lollipoptest.R;
-
 public abstract class BaseActivity extends ActionBarActivity {
 
     protected static final String PREFIX = "com.shansown.android.lollipoptest";

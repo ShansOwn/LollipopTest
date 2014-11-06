@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.shansown.android.lollipoptest.cardflip.CardFlipActivity;
 import com.shansown.android.lollipoptest.cardrecyclerview.CardRecyclerViewActivity;
 import com.shansown.android.lollipoptest.badge.BadgeActivity;
 import com.shansown.android.lollipoptest.transitions.custom.PicturesActivity;
@@ -55,11 +56,20 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * Launch Red Circle demo. Called from onclick=""
+     * Launch Budge demo. Called from onclick=""
      *
      * @param unused
      */
-    public void redCircleDemo(View unused) {
+    public void badgeDemo(View unused) {
         launchClass(BadgeActivity.class);
+    }
+
+    /**
+     * Launch Card Flip demo. Called from onclick=""
+     *
+     * @param unused
+     */
+    public void cardFlipDemo(View unused) {
+        launchClass(CardFlipActivity.class);
     }
 }

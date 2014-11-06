@@ -68,7 +68,15 @@
         </activity>
 
         <activity android:name=".badge.BadgeActivity"
-            android:label="@string/title_details"
+            android:label="@string/title_badge_demo"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity"/>
+        </activity>
+
+        <activity android:name=".cardflip.CardFlipActivity"
+            android:label="@string/title_card_flip"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
