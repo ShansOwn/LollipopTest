@@ -10,6 +10,7 @@
     <string name="title_card_recycler">Card Recycler Demo</string>
     <string name="title_badge_demo">Badge Demo</string>
     <string name="title_card_flip">Card Flip</string>
+    <string name="title_search">Search</string>
 
     <!-- Actions -->
     <string name="action_settings">Settings</string>
@@ -34,4 +35,6 @@
     <string name="text_increment">Increment</string>
     <string name="card_back_title">Angry Red Android</string>
     <string name="card_back_description"><![CDATA[Lorem ipsum dolor sit]]></string>
+    <string name="description_search">Search</string>
+    <string name="search_hint">Search something</string>
 </resources>
