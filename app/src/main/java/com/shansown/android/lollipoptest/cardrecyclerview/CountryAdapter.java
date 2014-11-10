@@ -70,6 +70,12 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.ViewHold
         notifyItemRemoved(position);
     }
 
+    public void refreshData(List<Country> newData) {
+        countries.clear();
+        countries.addAll(newData);
+        notifyDataSetChanged();
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(rowLayout, viewGroup, false);

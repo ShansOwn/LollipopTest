@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,16 +21,21 @@ import android.widget.FrameLayout;
 import com.shansown.android.lollipoptest.BaseActivity;
 import com.shansown.android.lollipoptest.R;
 
+import java.util.List;
+
 import de.greenrobot.event.EventBus;
 
 import static com.shansown.android.lollipoptest.util.LogUtils.LOGD;
+import static com.shansown.android.lollipoptest.util.LogUtils.LOGV;
 import static com.shansown.android.lollipoptest.util.LogUtils.makeLogTag;
 
 public class CardRecyclerViewActivity extends BaseActivity
-        implements RecyclerView.OnItemTouchListener, View.OnClickListener {
+        implements RecyclerView.OnItemTouchListener, View.OnClickListener,
+        SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = makeLogTag(CardRecyclerViewActivity.class);
 
+    private SwipeRefreshLayout mSwipeRefresh;
     private RecyclerView mRecyclerView;
     private CountryAdapter mAdapter;
     private GestureDetectorCompat mGestureDetector;
@@ -48,6 +54,14 @@ public class CardRecyclerViewActivity extends BaseActivity
                 finish();
             }
         });
+
+        mSwipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        mSwipeRefresh.setColorSchemeResources(
+                R.color.refresh_progress_1,
+                R.color.refresh_progress_2,
+                R.color.refresh_progress_3
+        );
+        mSwipeRefresh.setOnRefreshListener(this);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.list);
 
@@ -95,6 +109,15 @@ public class CardRecyclerViewActivity extends BaseActivity
                 CardDetailActivity.launch(this, view.findViewById(R.id.image), country, position);
                 break;
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        LOGV(TAG, "Refresh");
+        mSwipeRefresh.setRefreshing(true);
+        List<Country> newData = CountryManager.getInstance().getCountries();
+        mAdapter.refreshData(newData);
+        mSwipeRefresh.setRefreshing(false);
     }
 
     private void animateAddCountryFab() {
