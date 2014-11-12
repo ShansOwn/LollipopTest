@@ -11,6 +11,10 @@
     <string name="title_badge_demo">Badge Demo</string>
     <string name="title_card_flip">Card Flip</string>
     <string name="title_search">Search</string>
+    <string name="title_general_settings">General Settings</string>
+    <string name="title_sync">Synchronization</string>
+    <string name="title_auto_sync">Auto Synchronization</string>
+    <string name="title_auto_sync_interval">Synchronization Interval</string>
 
     <!-- Actions -->
     <string name="action_settings">Settings</string>
@@ -31,10 +35,31 @@
     <string name="main_card_recycler_view">Card Recycler</string>
     <string name="main_badge">Badge Demo</string>
     <string name="main_card_flip">Card Flip</string>
+    <string name="main_sync">Sync Demo</string>
 
     <string name="text_increment">Increment</string>
     <string name="card_back_title">Angry Red Android</string>
     <string name="card_back_description"><![CDATA[Lorem ipsum dolor sit]]></string>
     <string name="description_search">Search</string>
     <string name="search_hint">Search something</string>
+    <string name="sync_settings_summary">Automatic Synchronization</string>
+    <string name="auto_sync_summary">Synchronization at certain intervals</string>
+
+    <string-array name="auto_sync_intervals">
+        <item>Every minute</item>
+        <item>Every ten minute</item>
+        <item>Every hour</item>
+        <item>Once per three hour</item>
+        <item>Once per day</item>
+    </string-array>
+
+    <string-array name="auto_sync_interval_values">
+        <item>60</item>
+        <item>600</item>
+        <item>@string/auto_sync_interval_default</item>
+        <item>10800</item>
+        <item>86400</item>
+    </string-array>
+
+    <string name="auto_sync_interval_default">3600</string>
 </resources>

@@ -16,7 +16,7 @@ public class LogUtils {
     private static final int LOG_PREFIX_LENGTH = LOG_PREFIX.length();
     private static final int MAX_LOG_TAG_LENGTH = 23;
 
-    private static final String LOG_FILE_PATH = "sdcard/android_tests.log";
+    private static final String LOG_FILE_PATH = "sdcard/lollipop_tests.log";
 
     public static String makeLogTag(String str) {
         if (str.length() > MAX_LOG_TAG_LENGTH - LOG_PREFIX_LENGTH) {
@@ -37,8 +37,8 @@ public class LogUtils {
         //noinspection PointlessBooleanExpression,ConstantConditions
         if (BuildConfig.DEBUG || Log.isLoggable(tag, Log.DEBUG)) {
             Log.d(tag, message);
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " D/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " D/" + tag + "﹕ " + message);
         }
     }
 
@@ -46,8 +46,8 @@ public class LogUtils {
         //noinspection PointlessBooleanExpression,ConstantConditions
         if (BuildConfig.DEBUG || Log.isLoggable(tag, Log.DEBUG)) {
             Log.d(tag, message, cause);
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " D/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " D/" + tag + "﹕ " + message);
         }
     }
 
@@ -55,8 +55,8 @@ public class LogUtils {
         //noinspection PointlessBooleanExpression,ConstantConditions
         if (BuildConfig.DEBUG || Log.isLoggable(tag, Log.VERBOSE)) {
             Log.v(tag, message);
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " V/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " V/" + tag + "﹕ " + message);
         }
     }
 
@@ -64,56 +64,56 @@ public class LogUtils {
         //noinspection PointlessBooleanExpression,ConstantConditions
         if (BuildConfig.DEBUG || Log.isLoggable(tag, Log.VERBOSE)) {
             Log.v(tag, message, cause);
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " V/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " V/" + tag + "﹕ " + message);
         }
     }
 
     public static void LOGI(final String tag, String message) {
         Log.i(tag, message);
         if (BuildConfig.DEBUG) {
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " I/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " I/" + tag + "﹕ " + message);
         }
     }
 
     public static void LOGI(final String tag, String message, Throwable cause) {
         Log.i(tag, message, cause);
         if (BuildConfig.DEBUG) {
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " I/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " I/" + tag + "﹕ " + message);
         }
     }
 
     public static void LOGW(final String tag, String message) {
         Log.w(tag, message);
         if (BuildConfig.DEBUG) {
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " W/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " W/" + tag + "﹕ " + message);
         }
     }
 
     public static void LOGW(final String tag, String message, Throwable cause) {
         Log.w(tag, message, cause);
         if (BuildConfig.DEBUG) {
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " W/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " W/" + tag + "﹕ " + message);
         }
     }
 
     public static void LOGE(final String tag, String message) {
         Log.e(tag, message);
         if (BuildConfig.DEBUG) {
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " E/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " E/" + tag + "﹕ " + message);
         }
     }
 
     public static void LOGE(final String tag, String message, Throwable cause) {
         Log.e(tag, message, cause);
         if (BuildConfig.DEBUG) {
-//            writeLog(getLogTime(System.currentTimeMillis())
-//                    + " E/" + tag + "﹕ " + message);
+            writeLog(getLogTime(System.currentTimeMillis())
+                    + " E/" + tag + "﹕ " + message);
         }
     }
 

@@ -14,6 +14,7 @@ import com.shansown.android.lollipoptest.cardflip.CardFlipActivity;
 import com.shansown.android.lollipoptest.cardrecyclerview.CardRecyclerViewActivity;
 import com.shansown.android.lollipoptest.badge.BadgeActivity;
 import com.shansown.android.lollipoptest.search.SearchActivity;
+import com.shansown.android.lollipoptest.synctest.EntryListActivity;
 import com.shansown.android.lollipoptest.transitions.custom.PicturesActivity;
 import com.shansown.android.lollipoptest.transitions.lollipop.HomeActivity;
 
@@ -139,5 +140,14 @@ public class MainActivity extends BaseActivity {
      */
     public void cardFlipDemo(View unused) {
         launchClass(CardFlipActivity.class);
+    }
+
+    /**
+     * Launch Sync demo. Called from onclick=""
+     *
+     * @param unused
+     */
+    public void SyncDemo(View unused) {
+        launchClass(EntryListActivity.class);
     }
 }

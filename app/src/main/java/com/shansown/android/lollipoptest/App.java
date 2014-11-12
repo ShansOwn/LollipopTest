@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.squareup.picasso.Picasso;
 
-import static com.shansown.android.lollipoptest.util.LogUtils.LOGD;
 import static com.shansown.android.lollipoptest.util.LogUtils.makeLogTag;
 
 public class App extends Application {

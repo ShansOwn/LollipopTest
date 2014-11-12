@@ -63,7 +63,7 @@ public class CardRecyclerViewActivity extends BaseActivity
         );
         mSwipeRefresh.setOnRefreshListener(this);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.list);
+        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_list);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
