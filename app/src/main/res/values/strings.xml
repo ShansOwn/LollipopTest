@@ -13,6 +13,7 @@
     <string name="title_search">Search</string>
     <string name="title_general_settings">General Settings</string>
     <string name="title_sync">Synchronization</string>
+    <string name="title_photo_viewer">Photo Viewer</string>
     <string name="title_auto_sync">Auto Synchronization</string>
     <string name="title_auto_sync_interval">Synchronization Interval</string>
 
@@ -22,6 +23,7 @@
     <string name="action_slow_animations">Slow</string>
     <string name="action_info">Photo info</string>
     <string name="action_photo">View photo</string>
+    <string name="action_facebook_logout">Facebook Logout</string>
 
     <!-- Accessibility-only descriptions -->
     <string name="drawer_close">Close navigation drawer</string>
@@ -36,6 +38,9 @@
     <string name="main_badge">Badge Demo</string>
     <string name="main_card_flip">Card Flip</string>
     <string name="main_sync">Sync Demo</string>
+    <string name="main_photo_viewer">Photo Viewer</string>
+
+    <string name="btn_publish">Publish</string>
 
     <string name="text_increment">Increment</string>
     <string name="card_back_title">Angry Red Android</string>
@@ -62,4 +67,7 @@
     </string-array>
 
     <string name="auto_sync_interval_default">3600</string>
+
+    <!--Facebook-->
+    <string name="facebook_id">390552337767883</string>
 </resources>

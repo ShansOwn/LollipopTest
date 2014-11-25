@@ -127,10 +127,22 @@
         </activity>
 
         <activity
+            android:name=".photoviewer.PhotoViewerActivity"
+            android:label="@string/title_photo_viewer"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
+        <activity
             android:name=".synctest.SyncSettingsActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"
             android:label="@string/title_general_settings"
             android:screenOrientation="portrait" />
+
+        <!--Facebook-->
+        <activity android:name="com.facebook.LoginActivity"/>
 
         <!-- ContentProvider to store feed data.
 
@@ -178,5 +190,9 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_id"/>
     </application>
 </manifest>

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.2"
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
         applicationId "com.shansown.android.lollipoptest"
@@ -17,10 +17,30 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
+    signingConfigs {
+        debug {
+            storeFile file("tests.keystore")
+            storePassword "035513"
+            keyAlias "debug"
+            keyPassword "035513"
+        }
+        release {
+            storeFile file("tests.keystore")
+            storePassword "035513"
+            keyAlias "release"
+            keyPassword "035513"
+        }
+    }
+
     buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -52,10 +72,12 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.+'
     compile 'com.android.support:cardview-v7:21.+'
     compile 'com.android.support:palette-v7:21.+'
+    compile 'com.android.support:support-v4:21.+'
     compile 'com.squareup.picasso:picasso:2.3.4'
     compile 'de.greenrobot:eventbus:2.2.1'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
     compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.facebook.android:facebook-android-sdk:+'
 }
 
 task start(type:Exec) {

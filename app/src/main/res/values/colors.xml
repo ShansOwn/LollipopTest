@@ -20,6 +20,7 @@
     <color name="refresh_progress_3">@color/theme_primary</color>
 
     <color name="photo_tint">#88101010</color>
+    <color name="pressed_color">#88101010</color>
 
     <color name="translucent_actionbar_background">#cc3f51b5</color>
 </resources>

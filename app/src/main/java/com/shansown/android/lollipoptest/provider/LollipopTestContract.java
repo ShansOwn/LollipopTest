@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;
+import android.provider.OpenableColumns;
 import android.text.TextUtils;
 
 public class LollipopTestContract {
@@ -13,6 +14,7 @@ public class LollipopTestContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     private static final String PATH_ENTRIES = "entries";
+    private static final String PATH_PHOTO_VIEW = "photo_view";
 
     interface EntryColumns {
         /**
@@ -35,6 +37,39 @@ public class LollipopTestContract {
          * Date article was published.
          */
         String ENTRY_PUBLISHED = "entry_published";
+    }
+
+    interface PhotoViewColumns {
+        /**
+         * This column is a {@link Uri} that can be queried
+         * for this individual image (resulting cursor has one single row for this image).
+         */
+        public static final String URI = "uri";
+        /**
+         * This column is a {@link String} that can be queried for this
+         * individual image to return a displayable name.
+         */
+        public static final String NAME = OpenableColumns.DISPLAY_NAME;
+        /**
+         * This column is a {@link Uri} that points to the downloaded local file.
+         * Can be null.
+         */
+//        public static final String CONTENT_URI = "contentUri";
+        /**
+         * This column is a {@link Uri} that points to a thumbnail of the image
+         * that ideally is a local file.
+         * Can be null.
+         */
+        public static final String THUMBNAIL_URI = "thumbnailUri";
+        /**
+         * This string column is the MIME type.
+         */
+//        public static final String CONTENT_TYPE = "contentType";
+        /**
+         * This boolean column indicates that a loading indicator should display permenantly
+         * if no image urls are provided.
+         */
+        public static final String LOADING_INDICATOR = "loadingIndicator";
     }
 
     /**
@@ -79,6 +114,14 @@ public class LollipopTestContract {
                 + ENTRY_TITLE + " TEXT,"
                 + ENTRY_LINK + " TEXT,"
                 + ENTRY_PUBLISHED + " INTEGER" + ");";
+    }
+
+    public static class PhotoView implements BaseColumns, PhotoViewColumns {
+        /**
+         * Fully qualified URI for "photoView" resources.
+         */
+//        public static final Uri CONTENT_URI =
+//                BASE_CONTENT_URI.buildUpon().appendPath(PATH_PHOTO_VIEW).build();
     }
 
     public static Uri addCallerIsSyncAdapterParameter(Uri uri) {
