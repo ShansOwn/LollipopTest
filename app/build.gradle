@@ -19,8 +19,29 @@ android {
 
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    applicationVariants.all { variant ->
+
+        variant.outputs.each { output ->
+            def apk = output.outputFile;
+            def newName;
+
+            if (variant.buildType.name == "release") {
+                newName = apk.name.replace(".apk", "-v" + defaultConfig.versionName + "-release.apk");
+            } else {
+                newName = apk.name.replace(".apk", "-v" + defaultConfig.versionName + "-debug.apk");
+            }
+
+            output.outputFile = new File(apk.parentFile, newName);
+            if (output.zipAlign) {
+                output.outputFile = new File(apk.parentFile, newName.replace("-unaligned", ""));
+            }
+
+            logger.info('INFO: Set outputFile to ' + output.outputFile + " for [" + output.name + "]");
         }
     }
 }
