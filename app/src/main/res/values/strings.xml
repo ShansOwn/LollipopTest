@@ -10,6 +10,7 @@
     <string name="title_card_recycler">Card Recycler Demo</string>
     <string name="title_badge_demo">Badge Demo</string>
     <string name="title_card_flip">Card Flip</string>
+    <string name="title_rx">RX Demo</string>
     <string name="title_search">Search</string>
     <string name="title_general_settings">General Settings</string>
     <string name="title_sync">Synchronization</string>
@@ -36,6 +37,7 @@
     <string name="main_badge">Badge Demo</string>
     <string name="main_card_flip">Card Flip</string>
     <string name="main_sync">Sync Demo</string>
+    <string name="main_rx">RX Demo</string>
 
     <string name="text_increment">Increment</string>
     <string name="card_back_title">Angry Red Android</string>

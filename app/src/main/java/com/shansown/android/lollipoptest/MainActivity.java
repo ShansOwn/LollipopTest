@@ -13,6 +13,7 @@ import android.view.View;
 import com.shansown.android.lollipoptest.cardflip.CardFlipActivity;
 import com.shansown.android.lollipoptest.cardrecyclerview.CardRecyclerViewActivity;
 import com.shansown.android.lollipoptest.badge.BadgeActivity;
+import com.shansown.android.lollipoptest.rx.RxDemoActivity;
 import com.shansown.android.lollipoptest.search.SearchActivity;
 import com.shansown.android.lollipoptest.synctest.EntryListActivity;
 import com.shansown.android.lollipoptest.transitions.custom.PicturesActivity;
@@ -147,7 +148,16 @@ public class MainActivity extends BaseActivity {
      *
      * @param unused
      */
-    public void SyncDemo(View unused) {
+    public void syncDemo(View unused) {
         launchClass(EntryListActivity.class);
+    }
+
+    /**
+     * Launch RX demo. Called from onclick=""
+     *
+     * @param unused
+     */
+    public void rxDemo(View view) {
+        launchClass(RxDemoActivity.class);
     }
 }

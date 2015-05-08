@@ -18,12 +18,7 @@ public class BadgeActivity extends BaseActivity {
         setContentView(R.layout.activity_badge);
 
         final Toolbar toolbar = getActionBarToolbar();
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(view -> finish());
 
         View badgeTarget = findViewById(R.id.badge_target);
         mBadge = new BadgeView(this, badgeTarget);

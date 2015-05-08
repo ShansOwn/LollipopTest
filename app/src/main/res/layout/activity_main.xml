@@ -52,8 +52,14 @@
                 <Button
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:onClick="SyncDemo"
+                    android:onClick="syncDemo"
                     android:text="@string/main_sync" />
+
+                <Button
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:onClick="rxDemo"
+                    android:text="@string/main_rx" />
             </LinearLayout>
 
         </ScrollView>
