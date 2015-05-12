@@ -46,6 +46,24 @@ public class RxDemoActivity extends BaseActivity {
         startFlatMap_MapTest();
     }
 
+    @OnClick(R.id.zip)
+    protected void onZipClicked() {
+        LOGD(TAG, "___onZipClicked___");
+        startZipTest();
+    }
+
+    @OnClick(R.id.combineLatest)
+    protected void onCombineLatestClicked() {
+        LOGD(TAG, "___onCombineLatestClicked___");
+        startCombineLatestTest();
+    }
+
+    @OnClick(R.id.merge)
+    protected void onMergeClicked() {
+        LOGD(TAG, "___onMergeClicked___");
+        startMergeTest();
+    }
+
     private void startMapTest() {
         LOGD(TAG, "startMapTest");
         Observable.from(initData())
@@ -82,7 +100,7 @@ public class RxDemoActivity extends BaseActivity {
 
                     @Override
                     public void onNext(String string) {
-                        LOGD(TAG, "on Map Next: " + string + " - " + Thread.currentThread());
+                        LOGD(TAG, "___on Map Next: " + string + " - " + Thread.currentThread());
                     }
                 });
     }
@@ -128,7 +146,7 @@ public class RxDemoActivity extends BaseActivity {
 
                     @Override
                     public void onNext(String string) {
-                        LOGD(TAG, "on FlatMap Next: " + string + " - " + Thread.currentThread());
+                        LOGD(TAG, "___on FlatMap Next: " + string + " - " + Thread.currentThread());
                     }
                 });
     }
@@ -156,9 +174,82 @@ public class RxDemoActivity extends BaseActivity {
                 })
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((s) -> LOGD(TAG, "on FlatMap_Map Next: " + s + " - " + Thread.currentThread()),
+                .subscribe((s) -> LOGD(TAG, "___on FlatMap_Map Next: " + s + " - " + Thread.currentThread()),
                         (e) -> LOGD(TAG, "on FlatMap_Map Error" + " - " + Thread.currentThread()),
                         () -> LOGD(TAG, "on FlatMap_Map Completed:" + " - " + Thread.currentThread()));
+    }
+    
+    private void startZipTest() {
+        Observable.zip(
+                Observable.from(initData())
+                        .filter(s -> {
+                            boolean filter = ((s.hashCode() & 1) == 0);
+                            LOGD(TAG, "Filter1: " + filter + " - " + s);
+                            return filter;
+                        }),
+                Observable.from(initSmallData())
+                        .filter(s -> {
+                            boolean filter = ((s.hashCode() & 1) == 0);
+                            LOGD(TAG, "Filter2: " + filter + " - " + s);
+                            return filter;
+                        }),
+                (s, s2) -> {
+                    LOGD(TAG, "on Zip: " + Thread.currentThread());
+                    doSlowOperation();
+                    return s + " - " + s2;
+                })
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe((s) -> LOGD(TAG, "___on Zip Next: " + s + " - " + Thread.currentThread()),
+                        (e) -> LOGD(TAG, "on Zip Error" + " - " + Thread.currentThread()),
+                        () -> LOGD(TAG, "on Zip Completed:" + " - " + Thread.currentThread()));
+    }
+
+    private void startCombineLatestTest() {
+        Observable.combineLatest(
+                Observable.from(initData())
+                        .filter(s -> {
+                            boolean filter = ((s.hashCode() & 1) == 0);
+                            LOGD(TAG, "Filter1: " + filter + " - " + s);
+                            return filter;
+                        }),
+                Observable.from(initSmallData())
+                        .filter(s -> {
+                            boolean filter = ((s.hashCode() & 1) == 0);
+                            LOGD(TAG, "Filter2: " + filter + " - " + s);
+                            return filter;
+                        }),
+                (s, s2) -> {
+                    LOGD(TAG, "on CombineLatest: " + Thread.currentThread());
+                    doSlowOperation();
+                    return s + " - " + s2;
+                })
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe((s) -> LOGD(TAG, "___on CombineLatest Next: " + s + " - " + Thread.currentThread()),
+                        (e) -> LOGD(TAG, "on CombineLatest Error" + " - " + Thread.currentThread()),
+                        () -> LOGD(TAG, "on CombineLatest Completed:" + " - " + Thread.currentThread()));
+    }
+    
+    private void startMergeTest() {
+        Observable.merge(
+                Observable.from(initData())
+                        .filter(s -> {
+                            boolean filter = ((s.hashCode() & 1) == 0);
+                            LOGD(TAG, "Filter1: " + filter + " - " + s);
+                            return filter;
+                        }),
+                Observable.from(initSmallData())
+                        .filter(s -> {
+                            boolean filter = ((s.hashCode() & 1) == 0);
+                            LOGD(TAG, "Filter2: " + filter + " - " + s);
+                            return filter;
+                        }))
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe((s) -> LOGD(TAG, "___on Merge Next: " + s + " - " + Thread.currentThread()),
+                        (e) -> LOGD(TAG, "on Merge Error" + " - " + Thread.currentThread()),
+                        () -> LOGD(TAG, "on Merge Completed:" + " - " + Thread.currentThread()));
     }
 
     private List<String> initData() {
@@ -171,10 +262,29 @@ public class RxDemoActivity extends BaseActivity {
         return strings;
     }
 
+    private List<String> initSmallData() {
+        LOGD(TAG, "initSmallData");
+        List<String> strings = new ArrayList<>();
+        String string = "String";
+        for (int i = 1000; i > 980; i--) {
+            strings.add(string + "-" + i);
+        }
+        return strings;
+    }
+
     private void doSlowOperation() {
         LOGD(TAG, "doSlowOperation - " + Thread.currentThread());
         try {
             Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void doVerySlowOperation() {
+        LOGD(TAG, "doVerySlowOperation - " + Thread.currentThread());
+        try {
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
