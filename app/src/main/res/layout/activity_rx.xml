@@ -30,6 +30,12 @@
           android:text="Flat Map"
           />
       <Button
+          android:id="@+id/flatMapIterable"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Flat Map Iterable"
+          />
+      <Button
           android:id="@+id/flatMap_Map"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -59,13 +65,6 @@
           android:layout_height="wrap_content"
           android:text="Deffer"
           />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        >
     </LinearLayout>
   </LinearLayout>
 </LinearLayout>

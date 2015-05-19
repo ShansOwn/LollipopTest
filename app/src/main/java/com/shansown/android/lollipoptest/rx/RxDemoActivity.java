@@ -37,6 +37,11 @@ public class RxDemoActivity extends BaseActivity {
     startFlatMapTest();
   }
 
+  @OnClick(R.id.flatMapIterable) protected void onFlatMapIterableClicked() {
+    LOGD(TAG, "onFlatMapIterableClicked");
+    startFlatMapIterableTest();
+  }
+
   @OnClick(R.id.flatMap_Map) protected void onFlatMap_MapClicked() {
     LOGD(TAG, "___onFlatMap_MapClicked___");
     startFlatMap_MapTest();
@@ -143,6 +148,45 @@ public class RxDemoActivity extends BaseActivity {
         });
   }
 
+  private void startFlatMapIterableTest() {
+    LOGD(TAG, "startFlatMapTest");
+    Observable.just(initData())
+        .flatMapIterable(strings -> strings)
+        .flatMap(string -> {
+          LOGD(TAG, "on FlatMapIterable: " + Thread.currentThread());
+          doSlowOperation();
+          return Observable.just(string + "-flatMapped");
+        })
+        .flatMap(s -> {
+          LOGD(TAG, "on Another FlatMap: " + Thread.currentThread());
+          return Observable.just(s + "-another_flatMapped");
+        })
+        .flatMap(s -> {
+          LOGD(TAG, "on More Another FlatMap: " + Thread.currentThread());
+          return Observable.just(s + "-final_flatMapped");
+        })
+        .filter(s -> {
+          boolean filter = ((s.hashCode() & 1) == 0);
+          LOGD(TAG, "Filter: " + filter + " - " + s);
+          return filter;
+        })
+        .subscribeOn(Schedulers.computation())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Subscriber<String>() {
+          @Override public void onCompleted() {
+            LOGD(TAG, "on FlatMapIterable Completed:" + " - " + Thread.currentThread());
+          }
+
+          @Override public void onError(Throwable e) {
+            LOGD(TAG, "on FlatMapIterable Error" + " - " + Thread.currentThread());
+          }
+
+          @Override public void onNext(String string) {
+            LOGD(TAG, "___on FlatMapIterable Next: " + string + " - " + Thread.currentThread());
+          }
+        });
+  }
+
   private void startFlatMap_MapTest() {
     Observable.just(initData())
         .flatMap(Observable::from)
@@ -244,7 +288,6 @@ public class RxDemoActivity extends BaseActivity {
         .subscribe((s) -> LOGD(TAG, "___on Defer Next: " + s + " - " + Thread.currentThread()),
             (e) -> LOGD(TAG, "on Defer Error" + " - " + Thread.currentThread()),
             () -> LOGD(TAG, "on Defer Completed:" + " - " + Thread.currentThread()));
-    ;
   }
 
   private List<String> initData() {
