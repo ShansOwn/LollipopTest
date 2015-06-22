@@ -2,63 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+  <include layout="@layout/toolbar"/>
 
-    <include layout="@layout/toolbar"/>
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+      <Button
+          android:id="@+id/map"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Map"
+          />
+      <Button
+          android:id="@+id/flatMap"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Flat Map"
+          />
+      <Button
+          android:id="@+id/flatMap_Map"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Flat Map - Map"
+          />
+      <Button
+          android:id="@+id/zip"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Zip"
+          />
+      <Button
+          android:id="@+id/combineLatest"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Combine Latest"
+          />
+      <Button
+          android:id="@+id/merge"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Merge"
+          />
+      <Button
+          android:id="@+id/defer"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Deffer"
+          />
+    </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/map"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Map"/>
-
-            <Button
-                android:id="@+id/flatMap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Flat Map"/>
-
-            <Button
-                android:id="@+id/flatMap_Map"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Flat Map - Map"/>
-
-            <Button
-                android:id="@+id/zip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Zip"/>
-
-            <Button
-                android:id="@+id/combineLatest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Combine Latest"/>
-
-            <Button
-                android:id="@+id/merge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Merge"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-        </LinearLayout>
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
     </LinearLayout>
+  </LinearLayout>
 </LinearLayout>
