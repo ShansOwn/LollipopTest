@@ -3,73 +3,73 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.0"
+  compileSdkVersion 23
+  buildToolsVersion "22.0.1"
 
-    defaultConfig {
-        applicationId "com.shansown.android.lollipoptest"
-        minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 1
-        versionName "0.0.1"
+  defaultConfig {
+    applicationId "com.shansown.androidtests"
+    minSdkVersion 16
+    targetSdkVersion 23
+    versionCode 1
+    versionName "0.0.1"
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+  }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+  applicationVariants.all { variant ->
+
+    variant.outputs.each { output ->
+      def apk = output.outputFile;
+      def newName;
+
+      if (variant.buildType.name == "release") {
+        newName = apk.name.replace(".apk", "-v" + defaultConfig.versionName + "-release.apk");
+      } else {
+        newName = apk.name.replace(".apk", "-v" + defaultConfig.versionName + "-debug.apk");
+      }
+
+      output.outputFile = new File(apk.parentFile, newName);
+      if (output.zipAlign) {
+        output.outputFile = new File(apk.parentFile, newName.replace("-unaligned", ""));
+      }
+
+      logger.info('INFO: Set outputFile to ' + output.outputFile + " for [" + output.name + "]");
     }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    applicationVariants.all { variant ->
-
-        variant.outputs.each { output ->
-            def apk = output.outputFile;
-            def newName;
-
-            if (variant.buildType.name == "release") {
-                newName = apk.name.replace(".apk", "-v" + defaultConfig.versionName + "-release.apk");
-            } else {
-                newName = apk.name.replace(".apk", "-v" + defaultConfig.versionName + "-debug.apk");
-            }
-
-            output.outputFile = new File(apk.parentFile, newName);
-            if (output.zipAlign) {
-                output.outputFile = new File(apk.parentFile, newName.replace("-unaligned", ""));
-            }
-
-            logger.info('INFO: Set outputFile to ' + output.outputFile + " for [" + output.name + "]");
-        }
-    }
+  }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:22.0.0"
-    compile 'com.android.support:recyclerview-v7:22.0.0'
-    compile 'com.android.support:cardview-v7:22.0.0'
-    compile 'com.android.support:palette-v7:21.0.0'
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile "com.android.support:appcompat-v7:23.0.0"
+  compile 'com.android.support:recyclerview-v7:23.0.0'
+  compile 'com.android.support:cardview-v7:23.0.0'
+  compile 'com.android.support:palette-v7:23.0.0'
 
-    compile 'com.squareup.picasso:picasso:2.3.4'
+  compile 'com.squareup.picasso:picasso:2.3.4'
 
-    compile 'de.greenrobot:eventbus:2.2.1'
+  compile 'de.greenrobot:eventbus:2.2.1'
 
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
+  compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+  compile 'com.squareup.okhttp:okhttp:2.0.0'
 
-    compile 'com.jakewharton:butterknife:6.1.0'
-    apt 'org.projectlombok:lombok:1.14.8'
-    provided 'org.projectlombok:lombok:1.14.8'
+  compile 'com.jakewharton:butterknife:6.1.0'
+  apt 'org.projectlombok:lombok:1.14.8'
+  provided 'org.projectlombok:lombok:1.14.8'
 
-    compile 'io.reactivex:rxjava:1.0.8'
-    compile 'io.reactivex:rxandroid:0.24.0'
+  compile 'io.reactivex:rxjava:1.0.8'
+  compile 'io.reactivex:rxandroid:0.24.0'
 }
 
-task start(type:Exec) {
-    commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.shansown.android.lollipoptest/.MainActivity'
+task start(type: Exec) {
+  commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.shansown.androidtests/.MainActivity'
 }

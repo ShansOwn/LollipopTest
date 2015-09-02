@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Titles -->
-    <string name="app_name">LollipopTest</string>
+    <string name="app_name">Android Tests</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_lollipop_transitions">Lollipop transitions</string>
     <string name="title_custom_transitions">Custom transitions</string>

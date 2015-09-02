@@ -1,16 +1,17 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="spacing_large">16dp</dimen>
+  <!-- Default screen margins, per the Android Design guidelines. -->
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="spacing_large">16dp</dimen>
 
-    <dimen name="item_width">192dp</dimen>
-    <dimen name="item_height">192dp</dimen>
+  <dimen name="item_width">192dp</dimen>
+  <dimen name="item_height">192dp</dimen>
 
-    <!-- Navigation drawer -->
-    <dimen name="navdrawer_chosen_account_height">120dp</dimen>
-    <dimen name="navdrawer_width">260dp</dimen>
-    <dimen name="navdrawer_profile_image_size">40dp</dimen>
+  <!-- Navigation drawer -->
+  <dimen name="navdrawer_chosen_account_height">120dp</dimen>
+  <dimen name="navdrawer_width">260dp</dimen>
+  <dimen name="navdrawer_profile_image_size">40dp</dimen>
 
-    <dimen name="add_country_button_height">56dp</dimen> <!-- including padding -->
+  <dimen name="add_country_button_height">56dp</dimen>
+  <!-- including padding -->
 </resources>

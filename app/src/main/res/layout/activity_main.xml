@@ -1,71 +1,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
+  <include layout="@layout/toolbar"/>
 
-    <include layout="@layout/toolbar"/>
-
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
+  <android.support.v4.widget.DrawerLayout
+      android:id="@+id/drawer_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          >
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="transitionsLollipopDemo"
+            android:text="@string/main_transitions_lollipop"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="transitionsCustomDemo"
+            android:text="@string/main_transitions_custom"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="cardRecyclerDemo"
+            android:text="@string/main_card_recycler_view"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="badgeDemo"
+            android:text="@string/main_badge"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="cardFlipDemo"
+            android:text="@string/main_card_flip"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="SyncDemo"
+            android:text="@string/main_sync"
+            />
+          <Button
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:onClick="rxDemo"
+              android:text="@string/main_rx"
+              />
+      </LinearLayout>
+    </ScrollView>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <!-- Nav drawer -->
+    <include layout="@layout/navdrawer"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="transitionsLollipopDemo"
-                    android:text="@string/main_transitions_lollipop" />
-
-                <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="transitionsCustomDemo"
-                    android:text="@string/main_transitions_custom" />
-
-                <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="cardRecyclerDemo"
-                    android:text="@string/main_card_recycler_view" />
-
-                <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="badgeDemo"
-                    android:text="@string/main_badge" />
-
-                <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="cardFlipDemo"
-                    android:text="@string/main_card_flip" />
-
-                <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="syncDemo"
-                    android:text="@string/main_sync" />
-
-                <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:onClick="rxDemo"
-                    android:text="@string/main_rx" />
-            </LinearLayout>
-
-        </ScrollView>
-
-        <!-- Nav drawer -->
-        <include layout="@layout/navdrawer" />
-
-    </android.support.v4.widget.DrawerLayout>
+  </android.support.v4.widget.DrawerLayout>
 </LinearLayout>

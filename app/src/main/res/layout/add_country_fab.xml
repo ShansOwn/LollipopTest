@@ -6,15 +6,15 @@
     android:clickable="true"
     android:focusable="true"
     android:background="@drawable/add_country_fab_background"
-    android:contentDescription="@string/add_country">
-
-    <ImageView
-        android:id="@+id/add_country_icon"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="center"
-        android:src="@drawable/add_country_button_icon"
-        android:contentDescription="@null"
-        android:layout_gravity="center" />
-
+    android:contentDescription="@string/add_country"
+    >
+  <ImageView
+      android:id="@+id/add_country_icon"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scaleType="center"
+      android:src="@drawable/add_country_button_icon"
+      android:contentDescription="@null"
+      android:layout_gravity="center"
+      />
 </FrameLayout>

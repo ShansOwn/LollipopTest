@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:persistent="true">
+    android:persistent="true"
+    >
+  <PreferenceCategory android:title="@string/title_general_settings"/>
 
-    <PreferenceCategory android:title="@string/title_general_settings" />
-
-    <PreferenceScreen
-        android:key="pref_sync"
-        android:summary="@string/sync_settings_summary"
-        android:title="@string/title_sync">
-        <intent
-            android:action="com.shansown.app.ACTION_SYNC_SETTINGS"
-            android:targetClass="com.shansown.android.lollipoptest.synctest.SyncSettingsActivity"
-            android:targetPackage="com.shansown.android.lollipoptest" />
-    </PreferenceScreen>
-
+  <PreferenceScreen
+      android:key="pref_sync"
+      android:summary="@string/sync_settings_summary"
+      android:title="@string/title_sync"
+      >
+    <intent
+        android:action="com.shansown.app.ACTION_SYNC_SETTINGS"
+        android:targetClass="com.shansown.android.lollipoptest.synctest.SyncSettingsActivity"
+        android:targetPackage="com.shansown.android.lollipoptest"
+        />
+  </PreferenceScreen>
 </PreferenceScreen>
