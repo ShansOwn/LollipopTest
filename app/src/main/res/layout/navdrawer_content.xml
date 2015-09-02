@@ -16,30 +16,33 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <FrameLayout
-        android:id="@+id/chosen_account_view"
+  <FrameLayout
+      android:id="@+id/chosen_account_view"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/navdrawer_chosen_account_height"
+      >
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/navdrawer_chosen_account_height">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_cover"
+        android:tint="@color/session_photo_scrim"
+        android:id="@+id/profile_cover_image"
+        />
+  </FrameLayout>
 
-        <ImageView android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/default_cover"
-            android:tint="@color/session_photo_scrim"
-            android:id="@+id/profile_cover_image" />
-    </FrameLayout>
-
-    <FrameLayout
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+    <!-- Drawer items -->
+    <LinearLayout
+        android:id="@+id/navdrawer_items_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!-- Drawer items -->
-        <LinearLayout
-            android:id="@+id/navdrawer_items_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="vertical" />
-    </FrameLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        />
+  </FrameLayout>
 </merge>

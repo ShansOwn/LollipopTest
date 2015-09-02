@@ -20,5 +20,5 @@
     android:gravity="start|center_vertical"
     android:layout_width="match_parent"
     android:background="#e5e5e5"
-    android:layout_height="1dp" />
-
+    android:layout_height="1dp"
+    />

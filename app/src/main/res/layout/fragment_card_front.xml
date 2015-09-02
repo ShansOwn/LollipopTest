@@ -19,4 +19,5 @@
     android:layout_height="match_parent"
     android:src="@drawable/image1"
     android:scaleType="centerCrop"
-    android:contentDescription="@string/description_image_1" />
+    android:contentDescription="@string/description_image_1"
+    />
